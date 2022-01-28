@@ -71,6 +71,7 @@ git clone https://github.com/xyz111131/PhyloAcc.git
 ## Build on Linux or Mac
 Run:
 ```bash
+make clean  # just in case ...
 make
 ```
 in PhyloAcc directory to generate the 'PhyloAcc' executable.
