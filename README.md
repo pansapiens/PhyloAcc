@@ -26,7 +26,7 @@ brew install homebrew/science/armadillo
 * [Open MP](http://www.openmp.org/): for parallel computing. 
 * To use the R functions to plot,  please install [Rstudio](https://www.rstudio.com/) with the current version of R (>=3.3.2) and install seqinr, ggplot2, reshape2, ape packages.  
 
-Alternatively, you can use Conda to install these required packages:  
+Alternatively, you can use Conda to install these packages required to build PhyloAcc:  
 1) make a new conda environment called "PhyloAcc" for example, and activate the environment
 ```bash
 conda create -n PhyloAcc
@@ -58,6 +58,15 @@ PREFIX=${CONDA_PREFIX}
 ```
 
 *(credited to Wei Gordon)*
+
+## Get the source
+```bash
+git clone https://github.com/xyz111131/PhyloAcc.git
+
+# or 
+# wget https://github.com/xyz111131/PhyloAcc/archive/refs/tags/v1.0.tar.gz
+# tar xvzf v1.0.tar.gz
+```
 
 ## Build on Linux or Mac
 Run:
