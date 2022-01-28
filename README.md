@@ -32,21 +32,30 @@ Alternatively, you can use Conda to install these required packages:
 conda create -n PhyloAcc
 conda activate PhyloAcc
 ```
-2) conda install gsl
-3) conda install -c conda-forge lapack
-4) conda install -c conda-forge armadillo
-5) edit your .bashrc in your home directory:
-   ```bash
-    export LD_LIBRARY_PATH=/user/anaconda3/envs/PhyloAcc/lib/:$LD_LIBRARY_PATH
+2) `conda install gsl`
+3) `conda install -c conda-forge lapack`
+4) `conda install -c conda-forge armadillo`
+5) Set the correct `LD_LIBRARY_PATH` environment variable for this shell, and upon conda env activation
+    ```bash
+    # Set this environment variable
+    export LD_LIBRARY_PATH=${CONDA_PREFIX}/lib/:$LD_LIBRARY_PATH
+    
+    # Set it every time the conda env is activated
+    mkdir -p $CONDA_PREFIX/etc/conda/activate.d
+    echo -e '#!/bin/sh\nexport LD_LIBRARY_PATH=${CONDA_PREFIX}/lib:${LD_LIBRARY_PATH}\n' >$CONDA_PREFIX/etc/conda/activate.d/env_vars.sh
     ```
-    or other path of the conda environment
-7) source .bashrc
-8) change to g++-9 in the PhyloAcc Makefile if you are using GCC version 9
-9) edit the location of GSL lib and include in the Makefile: e.g. 
+
+6) `conda install -c conda-forge gxx_linux-64`
+7) Edit the location of GSL lib and include in the Makefile: e.g. 
 ```bash
-GSL_HOME=/user/anaconda3/envs/PhyloAcc/
+GSL_HOME=${CONDA_PREFIX}
+GSL_INCLUDE=$(GSL_HOME)/include/
+GSL_LIB=$(GSL_HOME)/lib/
 ```
-11) edit *PREFIX* in the Makefile for the installation directory of the conda env
+11) Edit *PREFIX* in the Makefile for the installation directory of the conda env
+```bash
+PREFIX=${CONDA_PREFIX}
+```
 
 *(credited to Wei Gordon)*
 
@@ -60,11 +69,11 @@ in PhyloAcc directory to generate the 'PhyloAcc' executable.
 ## Installation
 Run:
 ```bash
-sudo make install
+make install
 ```
 to install in default path /usr/local/bin, and 
 ```bash
-sudo make uninstall
+make uninstall
 ```
 to uninstall.
 
