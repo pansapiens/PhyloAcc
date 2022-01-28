@@ -45,7 +45,7 @@ conda activate PhyloAcc
     echo -e '#!/bin/sh\nexport LD_LIBRARY_PATH=${CONDA_PREFIX}/lib:${LD_LIBRARY_PATH}\n' >$CONDA_PREFIX/etc/conda/activate.d/env_vars.sh
     ```
 
-6) `conda install -c conda-forge gxx_linux-64`
+6) `conda install -c conda-forge gxx_linux-64 gcc_linux-64`
 7) Edit the location of GSL lib and include in the Makefile: e.g. 
 ```bash
 GSL_HOME=${CONDA_PREFIX}
