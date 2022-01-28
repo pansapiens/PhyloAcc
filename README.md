@@ -52,7 +52,7 @@ GSL_HOME=${CONDA_PREFIX}
 GSL_INCLUDE=$(GSL_HOME)/include/
 GSL_LIB=$(GSL_HOME)/lib/
 ```
-11) Edit *PREFIX* in the Makefile for the installation directory of the conda env
+8) Edit *PREFIX* in the Makefile for the installation directory of the conda env
 ```bash
 PREFIX=${CONDA_PREFIX}
 ```
